@@ -95,11 +95,11 @@ private Nodo head;
         return string;
     }
     
-    public Nodo DequeuePurgatory() {
+    public Nodo DequeueFix() {
         double rand = Math.random() * 100;
         Nodo newNode = null;
         if (rand > 45) {
-            System.out.println("Fracaso, sigue esperando");
+            System.out.println("No sale");
 
         } else {
             switch (this.size) {
