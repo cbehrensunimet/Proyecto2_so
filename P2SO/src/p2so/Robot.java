@@ -20,12 +20,15 @@ public class Robot {
 //            Menu.RobotConsole.setText(Integer.toString(node.getID()));
             node.setCounter(0);
             double rand = Math.random() * 100;
-            if (rand <= 30) {
+            if (rand <= 40) {
                 checked = new Revisado(node, 0);
-            } else if (rand > 30 && rand <= 80) {
+                //Sale al mercado
+            } else if (rand > 40 && rand <= 65) {
+                //Volver a encolar para revision
                 checked = new Revisado(node, 1);
             } else {
                 checked = new Revisado(node, 2);
+                //Requiere una mejora
             }
         }
         return checked;
