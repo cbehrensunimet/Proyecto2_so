@@ -7,9 +7,15 @@ package p2so;
 
 /**
  *
- * @author cbcbe
+ * @author cbcbe y Nicolás
  */
 public class Interfaz extends javax.swing.JFrame {
+    
+    public static volatile int araucas;
+    public static volatile Cola level1;
+    public static volatile Cola level2;
+    public static volatile Cola level3;
+    public static volatile Cola fixStation;
 
     /**
      * Creates new form Interfaz
@@ -28,8 +34,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ColasBot = new javax.swing.JTextArea();
+        RobotStatus = new javax.swing.JLabel();
+        CreatedAraucas = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -45,26 +53,59 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
-        ColasBot.setColumns(20);
-        ColasBot.setRows(5);
-        ColasBot.setText("Barriga del robot con sus colas\n");
-        jScrollPane1.setViewportView(ColasBot);
+        RobotStatus.setBackground(new java.awt.Color(0, 0, 102));
+        RobotStatus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        RobotStatus.setForeground(new java.awt.Color(255, 255, 0));
+        RobotStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RobotStatus.setText("Descansando");
+        RobotStatus.setOpaque(true);
+
+        CreatedAraucas.setBackground(new java.awt.Color(0, 0, 102));
+        CreatedAraucas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        CreatedAraucas.setForeground(new java.awt.Color(255, 255, 0));
+        CreatedAraucas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CreatedAraucas.setText("0");
+        CreatedAraucas.setOpaque(true);
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 102));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Estatus Robot");
+        jLabel2.setOpaque(true);
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 102));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Araucas Creados");
+        jLabel3.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(212, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(CreatedAraucas, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(RobotStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(210, 210, 210))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(CreatedAraucas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(RobotStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(329, 329, 329))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
@@ -174,15 +215,17 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea ColasBot;
-    private javax.swing.JTextPane ColasDos;
-    private javax.swing.JTextPane ColasFix;
-    private javax.swing.JTextPane ColasTres;
-    private javax.swing.JTextPane ColasUno;
+    public static javax.swing.JTextPane ColasDos;
+    public static javax.swing.JTextPane ColasFix;
+    public static javax.swing.JTextPane ColasTres;
+    public static javax.swing.JTextPane ColasUno;
+    public static volatile javax.swing.JLabel CreatedAraucas;
+    public static volatile javax.swing.JLabel RobotStatus;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;

@@ -17,7 +17,7 @@ public class Robot {
     public Revisado Check(Nodo node) {
         Revisado checked = null;
         if (node != null) {
-//            Menu.RobotConsole.setText(Integer.toString(node.getID()));
+//          Menu.RobotConsole.setText(Integer.toString(node.getID()));
             node.setCounter(0);
             double rand = Math.random() * 100;
             if (rand <= 30) {
