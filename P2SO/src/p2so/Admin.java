@@ -25,7 +25,6 @@ public class Admin {
             nodo = new Nodo(Interfaz.araucas, 3);
             Interfaz.araucas++;
         }
-        Interfaz.CreatedAraucas.setText(Integer.toString(Interfaz.araucas));
         return nodo;
     }
     
@@ -44,27 +43,15 @@ public class Admin {
         if (nodo != null) {
             switch (nodo.getPriority()) {
                 case 1:
-                    if (Interfaz.ColasUno.getText().split("\n").length < 5) {
-                        Interfaz.ColasUno.setText(Interfaz.ColasUno.getText() + "Añadida consola: " + nodo.getID() + "\n");
-                    } else {
-                        Interfaz.ColasUno.setText("Añadida consola: " + nodo.getID() + "\n");
-                    }
+                    Interfaz.Admin1.setText(Interfaz.Admin1.getText() + "Añadida consola: " + nodo.getID() + "\n");
                     Interfaz.level1.EnqueueNode(nodo);
                     break;
                 case 2:
-                    if (Interfaz.ColasDos.getText().split("\n").length < 5) {
-                        Interfaz.ColasDos.setText(Interfaz.ColasDos.getText() + "Añadida consola: " + nodo.getID() + "\n");
-                    } else {
-                        Interfaz.ColasDos.setText("Añadida consola: " + nodo.getID() + "\n");
-                    }
+                    Interfaz.Admin2.setText(Interfaz.Admin2.getText() + "Añadida consola: " + nodo.getID() + "\n");
                     Interfaz.level2.EnqueueNode(nodo);
                     break;
                 case 3:
-                    if (Interfaz.ColasTres.getText().split("\n").length < 5) {
-                        Interfaz.ColasTres.setText(Interfaz.ColasTres.getText() + "Añadida consola: " + nodo.getID() + "\n");
-                    } else {
-                        Interfaz.ColasTres.setText("Añadida consola: " + nodo.getID() + "\n");
-                    }
+                    Interfaz.Admin3.setText(Interfaz.Admin3.getText() + "Añadida consola: " + nodo.getID() + "\n");
                     Interfaz.level3.EnqueueNode(nodo);
                     break;
                 default:

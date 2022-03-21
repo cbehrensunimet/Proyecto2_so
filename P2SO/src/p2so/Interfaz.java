@@ -265,10 +265,10 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane Admin1;
-    private javax.swing.JTextPane Admin2;
-    private javax.swing.JTextPane Admin3;
-    private javax.swing.JTextPane AdminFix;
+    public static javax.swing.JTextPane Admin1;
+    public static javax.swing.JTextPane Admin2;
+    public static javax.swing.JTextPane Admin3;
+    public static javax.swing.JTextPane AdminFix;
     private javax.swing.JTextArea ColasBot;
     private javax.swing.JButton StartButton;
     private javax.swing.JLabel jLabel1;
