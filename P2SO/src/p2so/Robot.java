@@ -17,18 +17,21 @@ public class Robot {
     public Revisado Check(Nodo node) {
         Revisado checked = null;
         if (node != null) {
-//            Menu.RobotConsole.setText(Integer.toString(node.getID()));
+            Interfaz.ColasBot.setText("ID Escritorio en revisión: " + Integer.toString(node.getID()) + "\n");
             node.setCounter(0);
             double rand = Math.random() * 100;
             if (rand <= 40) {
-                checked = new Revisado(node, 0);
                 //Sale al mercado
+                checked = new Revisado(node, 0);
+                Interfaz.ColasBot.setText(Interfaz.ColasBot.getText() + "Escritorio vendido" + "\n");
             } else if (rand > 40 && rand <= 65) {
                 //Volver a encolar para revision
                 checked = new Revisado(node, 1);
+                Interfaz.ColasBot.setText(Interfaz.ColasBot.getText() + "Escritorio a revisión" + "\n");
             } else {
-                checked = new Revisado(node, 2);
                 //Requiere una mejora
+                checked = new Revisado(node, 2);                
+                Interfaz.ColasBot.setText(Interfaz.ColasBot.getText() + "Escritorio a mejoras" + "\n");
             }
         }
         return checked;
