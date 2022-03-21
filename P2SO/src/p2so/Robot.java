@@ -17,18 +17,15 @@ public class Robot {
     public Revisado Check(Nodo node) {
         Revisado checked = null;
         if (node != null) {
-//            Menu.RobotConsole.setText(Integer.toString(node.getID()));
+//          Menu.RobotConsole.setText(Integer.toString(node.getID()));
             node.setCounter(0);
             double rand = Math.random() * 100;
-            if (rand <= 40) {
+            if (rand <= 30) {
                 checked = new Revisado(node, 0);
-                //Sale al mercado
-            } else if (rand > 40 && rand <= 65) {
-                //Volver a encolar para revision
+            } else if (rand > 30 && rand <= 80) {
                 checked = new Revisado(node, 1);
             } else {
                 checked = new Revisado(node, 2);
-                //Requiere una mejora
             }
         }
         return checked;
