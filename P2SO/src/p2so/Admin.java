@@ -11,6 +11,17 @@ package p2so;
  */
 public class Admin {
     
+    public void updateText() {
+        Interfaz.Admin1.setText(Interfaz.level1.PrintQueue());
+        Interfaz.Admin1.update(Interfaz.Admin1.getGraphics());
+        Interfaz.Admin2.setText(Interfaz.level2.PrintQueue());
+        Interfaz.Admin2.update(Interfaz.Admin2.getGraphics());
+        Interfaz.Admin3.setText(Interfaz.level3.PrintQueue());
+        Interfaz.Admin3.update(Interfaz.Admin3.getGraphics());
+        Interfaz.AdminFix.setText(Interfaz.fixStation.PrintQueue());
+        Interfaz.AdminFix.update(Interfaz.AdminFix.getGraphics());
+    }
+    
     public Nodo Arauca() { 
         //Aquí se crean por prioridad y se avisa a interfaz de su creación
         double rand = Math.random() * 3;
@@ -39,20 +50,20 @@ public class Admin {
     }
     
     public void AddArauca(Nodo nodo) {
-        //Metodo que se encarga de actualizar la interfaz
+        //Metodo que se encarga de meter en las colas
         if (nodo != null) {
             switch (nodo.getPriority()) {
                 case 1:
-                    Interfaz.Admin1.setText(Interfaz.Admin1.getText() + "ID Escritorio: " + nodo.getID() + "\n");
                     Interfaz.level1.EnqueueNode(nodo);
+                    updateText();
                     break;
                 case 2:
-                    Interfaz.Admin2.setText(Interfaz.Admin2.getText() + "ID Escritorio: " + nodo.getID() + "\n");
                     Interfaz.level2.EnqueueNode(nodo);
+                    updateText();
                     break;
                 case 3:
-                    Interfaz.Admin3.setText(Interfaz.Admin3.getText() + "ID Escritorio: " + nodo.getID() + "\n");
-                    Interfaz.level3.EnqueueNode(nodo);
+                    Interfaz.level3.EnqueueNode(nodo);                    
+                    updateText();
                     break;
                 default:
                     break;
@@ -87,8 +98,8 @@ public class Admin {
                     break;
                 case 2:
                     //Los araucas a mejoras
-                    Interfaz.AdminFix.setText(Interfaz.AdminFix.getText() + "ID Escritorio: " + checked.getNode().getID() + "\n");
                     Interfaz.fixStation.EnqueueNode(checked.getNode());
+                    updateText();
                     break;
                 default:
                     break;
@@ -101,7 +112,7 @@ public class Admin {
             double rand = Math.random() * 100;
             Nodo nodo = Interfaz.fixStation.Dequeue();
             if (rand <= 45) {
-                Interfaz.AdminFix.setText(Interfaz.AdminFix.getText() + "ID Arauca Reparado: " + nodo.getID() + "\n");
+                updateText();
                 switch (nodo.getPriority()) {
                     case 1:
                         Interfaz.level1.EnqueueNode(nodo);
@@ -128,14 +139,16 @@ public class Admin {
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.Admin1.setText(Interfaz.Admin1.getText() + "Priority UP: " + strings[i] + "\n");
+                Interfaz.priorityUp.setText("Prioridad aumentada de 3 a 2\nEscritorio(s): " + strings[i]);
+                Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }
         string = Interfaz.level2.EnqueueQueue(Interfaz.level3.UpdateCounter());
         if (!string.equals("")) {
             strings = string.split(",");
             for (int i = 0; i < strings.length; i++) {
-                Interfaz.Admin2.setText(Interfaz.Admin2.getText() + "Priority UP: " + strings[i] + "\n");
+                Interfaz.priorityUp.setText("Prioridad aumentada de 3 a 2\nEscritorio(s): " + strings[i]);
+                Interfaz.priorityUp.update(Interfaz.priorityUp.getGraphics());
             }
         }
     }
