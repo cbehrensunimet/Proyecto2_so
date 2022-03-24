@@ -29,7 +29,7 @@ public class Simulacion {
                 for (int j = 0; j < 2; j++) {
                     Nodo nodo = admin.SelectArauca();
                     Revisado checked = robot.Check(nodo);
-                    Thread.sleep(500);
+                    Thread.sleep(10000);
                     admin.ManageChecked(checked);
                     Interfaz.ColasBot.update(Interfaz.ColasBot.getGraphics());
                     admin.UpdatePriority();
