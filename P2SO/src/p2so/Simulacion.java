@@ -23,31 +23,19 @@ public class Simulacion {
     
     public void run() {
         admin.AddArauca(admin.Arauca());
-        Interfaz.Admin1.update(Interfaz.Admin1.getGraphics());
-        Interfaz.Admin2.update(Interfaz.Admin2.getGraphics());
-        Interfaz.Admin3.update(Interfaz.Admin3.getGraphics());
+        
         while (true) {
             try {
                 for (int j = 0; j < 2; j++) {
                     Nodo nodo = admin.SelectArauca();
-                    Thread.sleep(1000);
                     Revisado checked = robot.Check(nodo);
-                    Thread.sleep(5000);
+                    Thread.sleep(500);
                     admin.ManageChecked(checked);
                     Interfaz.ColasBot.update(Interfaz.ColasBot.getGraphics());
                     admin.UpdatePriority();
-                    Interfaz.Admin1.update(Interfaz.Admin1.getGraphics());
-                    Interfaz.Admin2.update(Interfaz.Admin2.getGraphics());
                     admin.ManageFixes();
-                    Interfaz.AdminFix.update(Interfaz.AdminFix.getGraphics());
-                    Thread.sleep(1000);
                 }
                 admin.AddArauca(admin.CreateArauca());
-                Interfaz.Admin1.update(Interfaz.Admin1.getGraphics());
-                Interfaz.Admin2.update(Interfaz.Admin2.getGraphics());
-                Interfaz.Admin3.update(Interfaz.Admin3.getGraphics());
-
-
             } catch (Exception e) {
             }
         }

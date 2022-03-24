@@ -74,7 +74,7 @@ private Nodo head;
             Nodo auxNode = this.Dequeue();
             auxNode.setCounter(auxNode.getCounter() + 1);
             auxNode.setNext(null);
-            if (auxNode.getCounter() < 15) {
+            if (auxNode.getCounter() < 8) {
                 this.EnqueueNode(auxNode);
             }else{
                 auxNode.setCounter(0);
@@ -95,40 +95,12 @@ private Nodo head;
         return string;
     }
     
-    public Nodo DequeueFix() {
-        double rand = Math.random() * 100;
-        Nodo newNode = null;
-        if (rand > 45) {
-            System.out.println("No sale");
-
-        } else {
-            switch (this.size) {
-                case 0:
-                    break;
-                case 1:
-                    newNode = this.head;
-                    this.Empty();
-                    break;
-                default:
-                    newNode = this.head;
-                    head = head.getNext();
-                    size--;
-                    break;
-            }
-        }
-        return newNode;
-    }
-    
     public String PrintQueue(){
         String string = "";
         for (int i = 0; i < size; i++) {
             Nodo node = this.Dequeue();
             node.setNext(null);
-            if (i == 0) {
-                string = Integer.toString(node.getID());
-            }else{
-                string += "->" + Integer.toString(node.getID());
-            }
+            string = "ID Escritorio: " + Integer.toString(node.getID()) + " " + "(Contador: " +Integer.toString(node.getCounter()) + ")" + "\n";
             this.EnqueueNode(node);
         }
         return string;
